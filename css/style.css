@@ -1,0 +1,974 @@
+/* RESETARE DE BAZĂ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #111; /* Fundal întunecat general */
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* --- VIDEO BACKGROUND --- */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupă tot ecranul inițial */
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Umple ecranul fără să deformeze video-ul */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Întunecăm video-ul ca să se vadă scrisul */
+}
+
+/* --- HEADER --- */
+#main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 40px;
+    z-index: 1000;
+    background: rgba(0,0,0,0.3); /* Ușor transparent */
+    backdrop-filter: blur(5px); /* Efect modern de blur */
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 300; /* Font subțire ca în schiță */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- MEGA MENU STYLE (Stil Prague.eu) --- */
+
+/* Asigurăm că header-ul permite elemente absolute */
+.header-container {
+    position: relative;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+
+    /* MODIFICARE AICI: */
+    /* Sus 25px, Dreapta 0, Jos 5px, Stânga 0 */
+    padding: 10px 0 5px 0;
+
+    display: block;
+    /* Adăugăm o margine transparentă ca să nu "sară" conținutul când apare linia */
+    border-bottom: 2px solid transparent;
+}
+.main-nav li:hover > a {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+/* Asigură-te că regula pentru active arată așa (ca să se vadă linia) */
+.main-nav a.active,
+.main-nav a:hover {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+/* Containerul Mega Menu - Plutește sub header */
+.mega-menu-container {
+    display: none; /* Ascuns implicit */
+    position: absolute;
+    left: 0;
+    top: 100%; /* Exact sub header */
+    width: 100%; /* Cât lățimea header-ului (sau a ecranului dacă header-ul e full) */
+    background-color: #000; /* Fundal Negru */
+    border-top: 2px solid #ffd700; /* Linie aurie sus */
+    padding: 30px 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    z-index: 9999;
+    margin-top: 20px;
+}
+/* --- PODUL INVIZIBIL (SOLUȚIA PROBLEMEI TALE) --- */
+/* Acest element umple spațiul dintre buton și meniu */
+.mega-menu-container::before {
+    content: "";
+    display: block;
+    position: absolute;
+    /* Îl poziționăm deasupra meniului negru */
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    /* Înălțimea trebuie să fie MĂCAR cât margin-top-ul de mai sus (20px) */
+    /* Punem 30px ca să fim siguri că acoperă tot */
+    height: 30px;
+    background: transparent; /* Este invizibil */
+    /* background: red;  <-- Decomentează linia asta roșie doar dacă vrei să vezi unde e podul, pentru test */
+}
+/* Când facem hover pe LI, afișăm Containerul */
+.has-mega-menu:hover .mega-menu-container {
+    display: block;
+}
+
+/* Conținutul interior - Flexbox pentru coloane */
+.mega-menu-content {
+    display: flex;
+    justify-content: flex-start; /* Aliniem coloanele la stânga */
+    gap: 80px; /* Spațiu generos între coloane, ca pe prague.eu */
+    max-width: 1200px; /* Să nu se întindă infinit pe ecrane mari */
+}
+
+/* Coloanele */
+.menu-column h3 {
+    color: #ffd700; /* Titlu auriu */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-bottom: 1px solid #333; /* Linie fină sub titlu */
+    padding-bottom: 5px;
+}
+
+.menu-column a {
+    color: #ccc;
+    padding: 5px 0; /* Spațiere mică între link-uri */
+    text-transform: none; /* Text normal, nu doar majuscule */
+    font-size: 0.95rem;
+    display: block;
+    transition: color 0.2s, padding-left 0.2s;
+}
+
+/* Hover pe link-urile din coloane */
+.menu-column a:hover {
+    color: #fff;
+    padding-left: 5px; /* Mic efect de mișcare */
+    text-decoration: none;
+}
+
+
+.header-utils {
+    display: flex;
+    gap: 20px;
+    font-size: 0.8rem;
+}
+
+.header-utils a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* --- HERO SECTION --- */
+.hero-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #ffd700; /* Culoarea gălbuie din schiță */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #ddd;
+}
+
+/* --- NEWS SECTION --- */
+.news-section {
+    padding: 60px 40px;
+    background-color: #111; /* Fundal negru solid sub video */
+    min-height: 400px;
+}
+
+.news-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Textul vertical "NEWS" */
+.news-label {
+    writing-mode: vertical-rl; /* Scris vertical */
+    transform: rotate(180deg); /* Orientare corectă de jos în sus */
+    font-size: 3rem;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff; /* Doar contur alb, text gol (outline) */
+    letter-spacing: 5px;
+    height: 300px;
+    text-align: center;
+}
+
+/* Grila cu 4 cutii */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 coloane egale */
+    gap: 20px;
+    width: 100%;
+}
+
+.news-card {
+    background: #222;
+    border: 1px solid #444;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+.card-image {
+    height: 70%;
+    background-color: #333; /* Placeholder gri până pui poze */
+    background-image: url('../img/placeholder.jpg'); /* Dacă ai poze */
+    background-size: cover;
+}
+
+.card-text {
+    padding: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* --- FOOTER --- */
+/* --- FOOTER STYLES (NOU) --- */
+footer {
+    background-color: #050505; /* Aproape negru */
+    border-top: 1px solid #333;
+    padding-top: 50px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    flex-wrap: wrap; /* Permite trecerea pe rând nou pe mobil */
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1; /* Fiecare coloană ocupă spațiu egal */
+    min-width: 250px; /* Să nu fie prea înghesuite */
+}
+
+.footer-col h3 {
+    color: #ffd700;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-col p {
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: #ffd700;
+}
+
+
+/* Zona de jos (Copyright) */
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #222;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-col {
+        margin-bottom: 30px;
+    }
+}
+/*pana aici este pagina initiala*/
+
+/* --- STILURI SPECIFICE PAGINII DISCOVER --- */
+
+/* Ajustare Header pentru pagini interne (sa aiba fundal negru, nu transparent peste video) */
+.header-solid {
+    background-color: #000 !important;
+    position: relative !important; /* Nu mai e fix peste continut aici, ci parte din flux */
+    border-bottom: 1px solid #333;
+}
+
+/* Nav Link Activ */
+.main-nav a.active {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+.discover-container {
+    padding: 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* INTRO SECTION */
+.discover-intro {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+
+    /* MODIFICAREA ESTE AICI: */
+    margin-top: 30px; /* Împingem tot blocul în jos cu 80px */
+    padding-top: 20px; /* Siguranță suplimentară în interiorul cutiei */
+}
+.discover-intro.extra-margin {
+    /* Mărim spațiul de sus de la 120px la 200px */
+    margin-top: 30px;
+}
+.discover-intro.extra-margin .vertical-text {
+    font-size: 1.6rem; /* De la 3rem standard la 2.2rem */
+    letter-spacing: 3px; /* Strângem puțin și spațiul dintre litere */
+}
+/* --- EXCEPȚIE PENTRU INFORMATION --- */
+/* Facem textul mai mare decât la Accommodation, dar păstrăm marginile */
+.discover-intro.info-page .vertical-text {
+    font-size: 2.0rem; /* Creștem de la 2.2rem la 2.8rem */
+    letter-spacing: 4px;
+}
+.intro-left {
+    border-right: 1px solid #444;
+    padding-right: 20px;
+    padding-top: 10px; /* Adăugăm puțin spațiu sus ca să nu se lovească litera D de tavan */
+    display: flex;
+    align-items: center; /* Centrează linia verticală */
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #fff;
+    margin: 0;
+    height: 200px; /* Lungimea textului vertical */
+}
+
+.intro-right h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #ffd700;
+}
+
+.intro-right p {
+    color: #ccc;
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumbs a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+    color: #fff;
+}
+
+.breadcrumbs .current {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #333;
+    margin-bottom: 40px;
+}
+
+/* --- CATEGORY SECTIONS (SCROLL ORIZONTAL) --- */
+.category-section {
+    margin-bottom: 50px;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aliniere jos la text */
+    margin-bottom: 15px;
+}
+
+.category-header h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    border-left: 4px solid #ffd700; /* Linia mica aurie din stanga titlului */
+    padding-left: 15px;
+}
+
+
+/* Containerul de Scroll */
+.horizontal-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    /* SCHIMBARE AICI: */
+    padding-top: 15px; /* Facem loc sus pentru efectul de hover (ridicare) */
+    padding-bottom: 20px; /* Loc pentru scrollbar jos */
+    padding-left: 5px; /* Puțin spațiu la stânga pentru primul element */
+    scrollbar-width: thin;
+    scrollbar-color: #444 #111;
+}
+
+/* Stilizare Scrollbar (Chrome/Safari/Edge) */
+.horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+.horizontal-scroll::-webkit-scrollbar-track {
+    background: #111;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+/* Cardurile */
+.scroll-card {
+    min-width: 250px; /* Latime fixa, nu se turtesc */
+    height: 180px;
+    background-color: #222; /* Fundal gri inchis */
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+
+    /* Placeholder pentru imagine */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/placeholder.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.scroll-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+.scroll-card span {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .discover-intro {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .intro-left {
+        border-right: none;
+        border-bottom: 1px solid #444;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .vertical-text {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: 5px;
+        color: #fff;
+        margin: 0;
+        /* SCHIMBARE AICI: */
+        height: auto; /* Lăsăm înălțimea să fie cât are nevoie textul */
+        min-height: 250px; /* Îi dăm un minim ca să arate bine linia din dreapta */
+        padding-bottom: 10px; /* Adaugă puțin spațiu jos (care vizual e sus din cauza rotației) */
+        line-height: 1; /* Previne spațierea ciudată pe lateral */
+    }
+
+    .discover-container {
+        padding: 20px;
+    }
+}
+
+
+/* --- EXPERIENCE PAGE STYLES --- */
+/* Grila pentru Evenimente */
+.experience-grid {
+    display: grid;
+    /* Responsive: Câte coloane încap (minim 300px lățime), altfel trece pe rând nou */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Cardul de Eveniment */
+.event-card {
+    background-color: #222;
+    border: 1px solid #444;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1); /* Umbră aurie subtilă */
+    border-color: #ffd700;
+}
+
+/* Imaginea Cardului */
+.event-image {
+    height: 200px;
+    background-color: #333; /* Fallback gri */
+    background-image: url('../img/placeholder.jpg'); /* Default image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Data evenimentului (Badge peste imagine) */
+.date-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffd700;
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+/* Detaliile Text */
+.event-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 200px); /* Restul înălțimii */
+}
+
+.event-details h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-details p {
+    color: #ccc;
+    font-size: 0.9rem;
+    flex-grow: 1; /* Împinge butonul jos */
+    margin-bottom: 20px;
+}
+
+.details-btn {
+    display: inline-block;
+    padding: 8px 0;
+    color: #ffd700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-bottom: 1px solid #ffd700;
+    width: max-content;
+    transition: color 0.3s;
+}
+
+.details-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+
+/* --- ACCOMMODATION STYLES --- */
+
+.acc-card {
+    min-width: 280px; /* Carduri puțin mai late decât cele simple */
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.acc-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+.acc-image {
+    height: 160px;
+    background-color: #333;
+    background-image: url('../img/placeholder.jpg'); /* Imagine default */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Eticheta de preț */
+.price-tag {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ffd700;
+    color: #000;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.acc-info {
+    padding: 15px;
+    text-align: left; /* Aliniat la stânga pentru un look de "Booking" */
+}
+
+/* Steluțele */
+.acc-rating {
+    color: #ffd700;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+.acc-info h4 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.acc-info p {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+
+
+/* --- INFORMATION PAGE STYLES --- */
+
+.info-grid-section {
+    display: grid;
+    /* 3 coloane pe ecrane mari, se adaptează automat pe mici */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.info-card {
+    background-color: #111;
+    border: 1px solid #444;
+    padding: 30px;
+    border-radius: 4px;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    min-height: 250px; /* Înălțime minimă uniformă */
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+}
+
+/* Iconița discretă din fundal */
+.info-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #222; /* Foarte subtil, aproape invizibil */
+    transition: color 0.3s;
+}
+
+.info-card:hover .info-icon {
+    color: #ffd700; /* Se aprinde la hover */
+}
+
+.info-card h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    color: #ccc;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    padding-left: 15px;
+    position: relative;
+}
+
+/* Bullet points personalizate (pătrățele mici galbene) */
+.info-card ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background-color: #ffd700;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    border-radius: 1px;
+}
+
+/* --- SEARCH OVERLAY STYLES --- */
+
+/* Ecranul negru de fundal */
+.overlay {
+    height: 100%;
+    width: 100%;
+    display: none; /* Ascuns implicit */
+    position: fixed;
+    z-index: 99999; /* Peste tot, inclusiv header */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 0.95); /* Negru aproape opac */
+    transition: 0.5s;
+}
+
+/* Conținutul (Input + Buton) centrat */
+.overlay-content {
+    position: relative;
+    top: 25%; /* Poziționat mai sus, nu chiar la mijloc */
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Stil Input */
+.overlay input[type=text] {
+    padding: 15px;
+    font-size: 2rem;
+    border: none;
+    border-bottom: 2px solid #ffd700; /* Linie aurie */
+    float: left;
+    width: 60%; /* Cât de lat să fie */
+    background: transparent;
+    color: white;
+    margin-left: 20%; /* Centrare */
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Butonul Lupa din overlay */
+.overlay button {
+    float: left;
+    width: 5%;
+    padding: 15px;
+    background: transparent;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    color: #ffd700;
+}
+
+.overlay button:hover {
+    color: white;
+}
+
+/* Butonul X de închidere */
+.closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    cursor: pointer;
+    color: #888;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: #ffd700;
+}
+
+/* --- SOCIAL MEDIA ICONS --- */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Distanța dintre iconițe */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #fff;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+/* Efecte specifice la Hover */
+.social-icons a:hover {
+    transform: translateY(-3px); /* Se ridică puțin */
+}
+
+a.scroll-card {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Sau culoarea textului tău */
+}
+
+/* --- SVG ICONS REPLACEMENT --- */
+
+/* 1. Common Style for all SVG icons */
+.svg-icon {
+    width: 16px;            /* Standard icon size matching font size */
+    height: auto;
+    vertical-align: middle; /* Aligns perfectly with text */
+    margin-right: 8px;      /* Space between icon and text */
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* 2. GOLD FILTER */
+/* Used for: Footer Contact Icons (User, Phone, Univ), Overlay Search */
+.icon-gold {
+    /* Filter to turn black SVG to Gold (#ffd700) */
+    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
+}
+
+/* 3. WHITE FILTER */
+/* Used for: Header Search, Social Media Icons (initially) */
+.icon-white {
+    /* Filter to turn black SVG to White */
+    filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+}
+
+/* 4. GENERIC HOVER (for icons that don't have specific hover class) */
+a:hover .icon-white {
+    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
+    transform: scale(1.1);
+}
+
+/* 5. Specific Tweaks */
+
+/* Social Icons need to be slightly bigger */
+.social-svg {
+    width: 24px; 
+}
+
+/* Overlay Search Icon needs to be bigger */
+.icon-overlay {
+    width: 30px;
+    margin: 0;
+}
+
+/* Fix Overlay Button Alignment */
+.overlay button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* --- Social Media Specific Hover Colors --- */
+
+/* Facebook Hover (#1877F2) */
+a:hover .icon-facebook {
+    filter: invert(40%) sepia(11%) saturate(1987%) hue-rotate(175deg) brightness(140%) contrast(169%) !important;
+    transform: scale(1.1);
+}
+
+/* Instagram Hover (#E4CE40) */
+a:hover .icon-instagram {
+    filter: invert(37%) sepia(47%) saturate(327%) hue-rotate(14deg) brightness(155%) contrast(189%) !important;
+    transform: scale(1.1);
+}
+
+/* YouTube Hover (#FF0000) */
+a:hover .icon-youtube {
+    filter: invert(19%) sepia(95%) saturate(7456%) hue-rotate(358deg) brightness(101%) contrast(123%) !important;
+    transform: scale(1.1);
+}
