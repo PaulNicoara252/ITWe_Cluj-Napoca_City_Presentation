@@ -5,65 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cluj-Napoca - Discover the Magic</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="video-background">
     <video autoplay muted loop id="bg-video">
-        <source src="./img/video.mp4" type="video/mp4">
+        <source src="img/cluj_video.mp4" type="video/mp4">
     </video>
     <div class="video-overlay"></div> </div>
 
-<header id="main-header">
+<header id="main-header" style="background: rgba(0,0,0,0.3); backdrop-filter: blur(5px); border-bottom: none;">
     <div class="header-container">
-        <div class="logo">CLUJ-NAPOCA</div>
+        <div class="logo"><a href="index.html" style="color:white; text-decoration:none;">CLUJ-NAPOCA</a></div>
 
         <nav class="main-nav">
             <ul>
                 <li class="has-mega-menu">
                     <a href="discover.html">Discover</a>
-
                     <div class="mega-menu-container">
                         <div class="mega-menu-content">
-
                             <div class="menu-column">
                                 <h3>History</h3>
-                                <a href="discover.html#history">Matthias Corvinus House</a>
-                                <a href="discover.html#history">Tailors' Tower</a>
-                                <a href="discover.html#history">Union Square</a>
-                                <a href="discover.html#history">The Citadel</a>
-                                <a href="discover.html#history">Old Walls</a>
-                                <a href="discover.html#history">Franciscan Church</a>
+                                <a href="matthias-house.html">Matthias Corvinus House</a>
+                                <a href="tailors-tower.html">Tailors' Tower</a>
+                                <a href="banffy-castle.html">Bánffy Castle</a>
+                                <a href="casino.html">The Casino</a>
+                                <a href="dormition-cathedral.html">Orthodox Cathedral</a>
+                                <a href="old-town.html"> (Old Town)</a>
                             </div>
-
                             <div class="menu-column">
                                 <h3>Sites</h3>
-                                <a href="discover.html#sites">Central Park</a>
-                                <a href="discover.html#sites">Botanical Garden</a>
-                                <a href="discover.html#sites">Cetatuia Hill</a>
-                                <a href="discover.html#sites">Hoia Baciu Forest</a>
-                                <a href="discover.html#sites">Chios Lake</a>
+                                <a href="central-park.html">Central Park</a>
+                                <a href="botanical-garden.html">Botanical Garden</a>
+                                <a href="cetatuia-hill.html">Cetatuia Hill</a>
+                                <a href="hoia-baciu.html">Hoia Baciu Forest</a>
                             </div>
-
                             <div class="menu-column">
                                 <h3>Culture</h3>
-                                <a href="discover.html#culture">National Art Museum</a>
-                                <a href="discover.html#culture">Romanian Opera</a>
-                                <a href="discover.html#culture">Hungarian Theatre</a>
-                                <a href="discover.html#culture">Steampunk Museum</a>
-                                <a href="discover.html#culture">Pharmacy Museum</a>
+                                <a href="national-art-museum.html">National Art Museum</a>
+                                <a href="romanian-opera.html">Romanian Opera</a>
+                                <a href="hungarian-theatre.html">Hungarian Theatre</a>
+                                <a href="steampunk-museum.html">Steampunk Museum</a>
+                                <a href="pharmacy-museum.html">Pharmacy Museum</a>
                             </div>
-
                             <div class="menu-column">
                                 <h3>Food & Drinks</h3>
-                                <a href="discover.html#food">Samsara Foodhouse</a>
-                                <a href="discover.html#food">Roata Restaurant</a>
-                                <a href="discover.html#food">Joben Bistro</a>
-                                <a href="discover.html#food">Enigma Cafe</a>
-                                <a href="discover.html#food">Piezișă Street</a>
+                                <a href="samsara.html">Samsara Foodhouse</a>
+                                <a href="panemar.html">Panemar Bakery</a>
+                                <a href="soviet.html">Soviet</a>
                             </div>
-
                         </div>
                     </div>
                 </li>
@@ -73,83 +65,66 @@
                     <div class="mega-menu-container">
                         <div class="mega-menu-content">
                             <div class="menu-column">
-                                <h3>Major Events</h3>
-                                <a href="#festivals">Untold Festival</a>
-                                <a href="#festivals">Electric Castle</a>
-                                <a href="#festivals">TIFF (Film Festival)</a>
-                                <a href="#festivals">Jazz in the Park</a>
+                                <h3>Music & Festivals</h3>
+                                <a href="untold.html">Untold Festival</a>
+                                <a href="electric-castle.html">Electric Castle</a>
+                                <a href="tiff.html">TIFF</a>
+                                <a href="jazz-in-the-park.html">Jazz in the Park</a>
                             </div>
                             <div class="menu-column">
                                 <h3>Leisure</h3>
-                                <a href="#leisure">Shopping Malls</a>
-                                <a href="#leisure">Cinema City</a>
-                                <a href="#leisure">Escape Rooms</a>
+                                <a href="iulius-mall.html">Iulius Mall</a>
+                                <a href="cinema-city.html">Cinema City</a>
+                                <a href="escape-room.html">Escape Room</a>
                             </div>
                             <div class="menu-column">
                                 <h3>Nightlife</h3>
-                                <a href="#nightlife">Piezișă Street Bars</a>
-                                <a href="#nightlife">Club Midi</a>
-                                <a href="#nightlife">Form Space</a>
+                                <a href="piezisa.html">Piezișă Street</a>
+                                <a href="noa-club.html">NOA Club</a>
+                                <a href="form-space.html">Form Space</a>
                             </div>
                         </div>
                     </div>
                 </li>
+
                 <li class="has-mega-menu">
                     <a href="accommodation.html">Accommodation</a>
                     <div class="mega-menu-container">
                         <div class="mega-menu-content">
                             <div class="menu-column">
-                                <h3>Luxury</h3>
-                                <a href="#hotels">5-Star Hotels</a>
-                                <a href="#hotels">Spa Resorts</a>
+                                <h3>Hotels</h3>
+                                <a href="hotel-beyfin.html">Hotel Beyfin</a>
+                                <a href="grand-hotel-napoca.html">Grand Hotel Napoca</a>
+                                <a href="hotel-premier.html">Hotel Premier</a>
                             </div>
                             <div class="menu-column">
-                                <h3>Comfort</h3>
-                                <a href="#apartments">City Center Apts</a>
-                                <a href="#apartments">Boutique Hotels</a>
+                                <h3>Apartments</h3>
+                                <a href="vivaldi-studios.html">Vivaldi Studios</a>
+                                <a href="west-tower-cluj.html">West City Tower</a>
                             </div>
                             <div class="menu-column">
-                                <h3>Budget</h3>
-                                <a href="#hostels">Youth Hostels</a>
-                                <a href="#hostels">Student Campus</a>
+                                <h3>Hostels</h3>
+                                <a href="zen-hostel.html">Zen Hostel</a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="has-mega-menu">
-                    <a href="info.html" >Information</a>
 
+                <li class="has-mega-menu">
+                    <a href="info.html">Information</a>
                     <div class="mega-menu-container">
                         <div class="mega-menu-content">
-
-                            <div class="menu-column">
-                                <h3>Getting Around</h3>
-                                <a href="info.html">Public Transport</a>
-                                <a href="info.html">Airport Access</a>
-                                <a href="info.html">Parking & Taxi</a>
-                            </div>
-
-                            <div class="menu-column">
-                                <h3>Essentials</h3>
-                                <a href="info.html">Emergency (112)</a>
-                                <a href="info.html">Currency Exchange</a>
-                                <a href="info.html">Tourist Office</a>
-                            </div>
-
                             <div class="menu-column">
                                 <h3>Good to Know</h3>
-                                <a href="info.html">Local Rules</a>
-                                <a href="info.html">FAQ</a>
-                                <a href="info.html">Safety Tips</a>
+                                <a href="public-transport.html">Public Transport</a>
+                                <a href="facts-figures.html">Facts & Figures</a>
+                                <a href="faq.html">FAQ</a>
                             </div>
-
                             <div class="menu-column">
                                 <h3>Contact</h3>
-                                <a href="info.html">Contact Us</a>
-                                <a href="info.html">Embassies</a>
-                                <a href="info.html">Feedback</a>
+                                <a href="contact.html">Contact Us</a>
+                                <a href="feedback.html">Feedback</a>
                             </div>
-
                         </div>
                     </div>
                 </li>
@@ -157,9 +132,7 @@
         </nav>
 
         <div class="header-utils">
-            <a href="javascript:void(0)" onclick="openSearch()">
-                <img src="./img/icons/search.svg" class="svg-icon icon-white" alt="Search"> Find something
-            </a>
+            <a href="javascript:void(0)" onclick="openSearch()">🔍 Find something</a>
         </div>
     </div>
 </header>
@@ -172,26 +145,29 @@
 <section class="news-section">
     <div class="news-container">
         <div class="news-label">
-            <h2>NEWS</h2>
+            <h2>THE BEST OF CLUJ</h2>
         </div>
 
         <div class="news-grid">
-            <article class="news-card">
-                <div class="card-image"></div>
-                <div class="card-text">Untold Festival 2024 Dates Announced</div>
-            </article>
-            <article class="news-card">
-                <div class="card-image"></div>
-                <div class="card-text">New Exhibition at Art Museum</div>
-            </article>
-            <article class="news-card">
-                <div class="card-image"></div>
-                <div class="card-text">Best Coffee Shops in Old Town</div>
-            </article>
-            <article class="news-card">
-                <div class="card-image"></div>
-                <div class="card-text">Public Transport Updates</div>
-            </article>
+            <a href="untold.html" class="news-card">
+                <div class="card-image news-untold"></div>
+                <div class="card-text">Untold Festival</div>
+            </a>
+
+            <a href="electric-castle.html" class="news-card">
+                <div class="card-image news-ec"></div>
+                <div class="card-text">Electric Castle</div>
+            </a>
+
+            <a href="dormition-cathedral.html" class="news-card">
+                <div class="card-image news-cathedral"></div>
+                <div class="card-text">Orthodox Cathedral</div>
+            </a>
+
+            <a href="romanian-opera.html" class="news-card">
+                <div class="card-image news-opera"></div>
+                <div class="card-text">Romanian Opera</div>
+            </a>
         </div>
     </div>
 </section>
@@ -208,51 +184,51 @@
         <div class="footer-col">
             <h3>Contact us / PROJECT TEAM</h3>
             <div class="contact-item">
-                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Paul Nicoară<br>
-                <a href="mailto:nicoarap2004@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> nicoarap2004@gmail.com</a><br>
-                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 799 856 742</span>
+                <i class="fas fa-user"></i> Paul Nicoară<br>
+                <a href="mailto:nicoarap2004@gmail.com"><i class="fas fa-envelope"></i> nicoarap2004@gmail.com</a><br>
+                <span><i class="fas fa-phone"></i> +40 799 856 742</span>
             </div>
             <div class="contact-item">
-                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Rareș Baciu<br>
-                <a href="mailto:baciur57@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> baciur57@gmail.com</a><br>
-                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 770 708 076</span>
+                <i class="fas fa-user"></i> Rareș Baciu<br>
+                <a href="mailto:baciur57@gmail.com"><i class="fas fa-envelope"></i> baciur57@gmail.com</a><br>
+                <span><i class="fas fa-phone"></i> +40 770 708 076</span>
             </div>
             <div class="contact-item">
-                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Csaba Gyorfi<br>
-                <a href="mailto:baciur57@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> baciur57@gmail.com</a><br>
-                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 840 821 056</span>
+                <i class="fas fa-user"></i> Csaba Gyorfi<br>
+                <a href="mailto:baciur57@gmail.com"><i class="fas fa-envelope"></i> baciur57@gmail.com</a><br>
+                <span><i class="fas fa-phone"></i> +40 840 821 056</span>
             </div>
         </div>
 
         <div class="footer-col">
             <h3>SUPERVISORS</h3>
             <div class="contact-item">
-                <img src="./img/icons/univ.svg" class="svg-icon icon-gold" alt="University"> Radek Burget<br>
-                <a href="mailto:burgetr@fit.vut.cz"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> burgetr@fit.vut.cz</a><br>
-                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +420 541 141 441</span>
+                <i class="fas fa-university"></i> Radek Burget<br>
+                <a href="mailto:burgetr@fit.vut.cz"><i class="fas fa-envelope"></i> burgetr@fit.vut.cz</a><br>
+                <span><i class="fas fa-phone"></i> +420 541 141 441</span>
             </div>
             <div class="contact-item">
-                <img src="./img/icons/univ.svg" class="svg-icon icon-gold" alt="University"> Jiří Hynek<br>
-                <a href="mailto:hynek@fit.vut.cz"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> hynek@fit.vut.cz</a><br>
-                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +420 541 141 320</span>
+                <i class="fas fa-university"></i> Jiří Hynek<br>
+                <a href="mailto:hynek@fit.vut.cz"><i class="fas fa-envelope"></i> hynek@fit.vut.cz</a><br>
+                <span><i class="fas fa-phone"></i> +420 541 141 320</span>
             </div>
 
             <div class="social-section" style="margin-top: 30px;">
                 <h3>FOLLOW VUT</h3>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/BrnoUniversityOfTechnology" target="_blank" title="Facebook">
-                        <img src="./img/icons/facebook.svg" class="svg-icon icon-white social-svg icon-facebook" alt="Facebook">
+                        <i class="fab fa-facebook"></i>
                     </a>
                     <a href="https://www.instagram.com/fit.vut/?__d=1utm_sourceig_embed" target="_blank" title="Instagram">
-                        <img src="./img/icons/instagram.svg" class="svg-icon icon-white social-svg icon-instagram" alt="Instagram">
+                        <i class="fab fa-instagram"></i>
                     </a>
                     <a href="https://www.youtube.com/@FIT_VUT/videos" target="_blank" title="YouTube">
-                        <img src="./img/icons/youtube.svg" class="svg-icon icon-white social-svg icon-youtube" alt="YouTube">
+                        <i class="fab fa-youtube"></i>
                     </a>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
     <div class="footer-bottom">
         <p>&copy; 2025 Cluj-Napoca Project. All rights reserved.</p>
@@ -263,9 +239,7 @@
 
     <div class="overlay-content">
         <input type="text" placeholder="Type here (e.g., hotel, untold, food)..." id="searchInput">
-        <button type="button" onclick="performSearch()">
-            <img src="./img/icons/search.svg" class="svg-icon icon-gold icon-overlay" alt="Search">
-        </button>
+        <button type="button" onclick="performSearch()"><i class="fas fa-search"></i></button>
     </div>
 </div>
 

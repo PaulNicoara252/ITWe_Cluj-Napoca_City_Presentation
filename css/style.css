@@ -227,7 +227,7 @@ body {
 /* Textul vertical "NEWS" */
 .news-label {
     writing-mode: vertical-rl; /* Scris vertical */
-    transform: rotate(180deg); /* Orientare corectă de jos în sus */
+    transform: rotate(270deg); /* Orientare corectă de jos în sus */
     font-size: 3rem;
     font-weight: bold;
     color: transparent;
@@ -329,6 +329,12 @@ footer {
     color: #ffd700;
 }
 
+.contact-item i {
+    color: #ffd700;
+    margin-right: 8px;
+    width: 15px; /* Aliniere frumoasă a iconițelor */
+    text-align: center;
+}
 
 /* Zona de jos (Copyright) */
 .footer-bottom {
@@ -384,6 +390,12 @@ footer {
     margin-top: 30px; /* Împingem tot blocul în jos cu 80px */
     padding-top: 20px; /* Siguranță suplimentară în interiorul cutiei */
 }
+
+.discover-intro.discover-fix {
+    margin-top: 120px; /* Spațiu suficient pentru ca titlul 'DISCOVER' să nu intre sub header */
+    padding-top: 20px;
+}
+
 .discover-intro.extra-margin {
     /* Mărim spațiul de sus de la 120px la 200px */
     margin-top: 30px;
@@ -887,8 +899,8 @@ footer {
 
 .social-icons a {
     color: #fff;
-    display: inline-block;
-    transition: transform 0.3s;
+    font-size: 1.8rem; /* Mărimea iconițelor */
+    transition: transform 0.3s, color 0.3s;
 }
 
 /* Efecte specifice la Hover */
@@ -896,79 +908,87 @@ footer {
     transform: translateY(-3px); /* Se ridică puțin */
 }
 
+/* Culorile brand-urilor la hover (opțional, arată profi) */
+.social-icons a:hover .fa-facebook { color: #1877F2; }
+.social-icons a:hover .fa-instagram { color: #e4ce40; }
+.social-icons a:hover .fa-youtube { color: #FF0000; }
+
 a.scroll-card {
     text-decoration: none;
     color: rgb(255, 255, 255); /* Sau culoarea textului tău */
 }
 
-/* --- SVG ICONS REPLACEMENT --- */
 
-/* 1. Common Style for all SVG icons */
-.svg-icon {
-    width: 16px;            /* Standard icon size matching font size */
-    height: auto;
-    vertical-align: middle; /* Aligns perfectly with text */
-    margin-right: 8px;      /* Space between icon and text */
-    transition: transform 0.3s, filter 0.3s;
-}
+/* functii adaugate de paul
+/* --- STILURI PENTRU CARDURI DISCOVER (Background Images) --- */
 
-/* 2. GOLD FILTER */
-/* Used for: Footer Contact Icons (User, Phone, Univ), Overlay Search */
-.icon-gold {
-    /* Filter to turn black SVG to Gold (#ffd700) */
-    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
-}
-
-/* 3. WHITE FILTER */
-/* Used for: Header Search, Social Media Icons (initially) */
-.icon-white {
-    /* Filter to turn black SVG to White */
-    filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
-}
-
-/* 4. GENERIC HOVER (for icons that don't have specific hover class) */
-a:hover .icon-white {
-    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
-    transform: scale(1.1);
-}
-
-/* 5. Specific Tweaks */
-
-/* Social Icons need to be slightly bigger */
-.social-svg {
-    width: 24px; 
-}
-
-/* Overlay Search Icon needs to be bigger */
-.icon-overlay {
-    width: 30px;
-    margin: 0;
-}
-
-/* Fix Overlay Button Alignment */
-.overlay button {
+/* Facem cardul să fie un link bloc, centrat */
+a.scroll-card {
+    text-decoration: none;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
-/* --- Social Media Specific Hover Colors --- */
+/* Definim imaginile pentru fiecare card (OBSERVĂ calea ../img/) */
 
-/* Facebook Hover (#1877F2) */
-a:hover .icon-facebook {
-    filter: invert(40%) sepia(11%) saturate(1987%) hue-rotate(175deg) brightness(140%) contrast(169%) !important;
-    transform: scale(1.1);
+/* HISTORY */
+.card-matthias { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/history/matthias_house/main.jpg'); }
+.card-tailors { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/history/tailors_tower/main.jpg'); }
+.card-banffy { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/history/banffy_castle/main.jpg'); }
+.card-casino { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/history/casino/main.jpg'); }
+.card-cathedral { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/history/dormition_cathedral/main.jpg'); }
+.card-union { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/old_town/main.jpg'); }
+
+/* SITES */
+.card-central { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/central_park/main.jpg'); }
+.card-botanical { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/botanical_garden/main.jpg'); }
+.card-cetatuia { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/cetatuia_hill/main.jpg'); }
+.card-hoia { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/hoia_baciu/main.jpg'); }
+.card-chios { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/sites/central_park/main.jpg'); } /* Placeholder */
+
+/* CULTURE */
+.card-art { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/culture/national_art_museum/main.jpg'); }
+.card-opera { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/culture/romanian_opera/main.jpg'); }
+.card-hungarian { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/culture/hungarian_theatre/main.jpg'); }
+.card-steampunk { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/culture/steampunk_museum/main.jpg'); }
+.card-pharmacy { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/culture/pharmacy_museum/main.jpg'); }
+
+/* FOOD */
+.card-samsara { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/food/samsara/main.jpg'); }
+.card-panemar { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/food/panemar/main.jpg'); }
+.card-soviet { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/food/soviet/main.jpg'); }
+.card-piezisa { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/experience/piezisa/main.jpg'); }
+/*RARES*/
+
+
+/* --- IMAGINI PENTRU INDEX NEWS CARDS --- */
+
+/* Ne asigurăm că link-ul arată bine */
+a.news-card {
+    text-decoration: none;
+    color: #fff;
+    display: flex; /* Păstrăm flex-ul din definiția veche */
 }
 
-/* Instagram Hover (#E4CE40) */
-a:hover .icon-instagram {
-    filter: invert(37%) sepia(47%) saturate(327%) hue-rotate(14deg) brightness(155%) contrast(189%) !important;
-    transform: scale(1.1);
+/* Imaginile specifice */
+.news-untold {
+    background-image: url('../img/experience/untold/untold.jpg');
 }
 
-/* YouTube Hover (#FF0000) */
-a:hover .icon-youtube {
-    filter: invert(19%) sepia(95%) saturate(7456%) hue-rotate(358deg) brightness(101%) contrast(123%) !important;
-    transform: scale(1.1);
+.news-ec {
+    background-image: url('../img/experience/electric_castle/electric.jpg');
+}
+
+.news-cathedral {
+    background-image: url('../img/history/dormition_cathedral/main.jpg');
+}
+
+.news-opera {
+    background-image: url('../img/culture/romanian_opera/main.jpg');
 }
