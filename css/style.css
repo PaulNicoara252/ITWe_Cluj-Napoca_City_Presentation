@@ -992,3 +992,78 @@ a.news-card {
 .news-opera {
     background-image: url('../img/culture/romanian_opera/main.jpg');
 }
+/* --- SVG ICONS REPLACEMENT --- */
+
+/* 1. Common Style for all SVG icons */
+.svg-icon {
+    width: 16px;            /* Standard icon size matching font size */
+    height: auto;
+    vertical-align: middle; /* Aligns perfectly with text */
+    margin-right: 8px;      /* Space between icon and text */
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* 2. GOLD FILTER */
+/* Used for: Footer Contact Icons (User, Phone, Univ), Overlay Search */
+.icon-gold {
+    /* Filter to turn black SVG to Gold (#ffd700) */
+    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
+}
+
+/* 3. WHITE FILTER */
+/* Used for: Header Search, Social Media Icons (initially) */
+.icon-white {
+    /* Filter to turn black SVG to White */
+    filter: invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);
+}
+
+/* 4. GENERIC HOVER (for icons that don't have specific hover class) */
+a:hover .icon-white {
+    filter: invert(86%) sepia(26%) saturate(6246%) hue-rotate(358deg) brightness(101%) contrast(106%);
+    transform: scale(1.1);
+}
+
+/* 5. Specific Tweaks */
+
+/* Social Icons need to be slightly bigger */
+.social-svg {
+    width: 24px; 
+}
+
+/* Overlay Search Icon needs to be bigger */
+.icon-overlay {
+    width: 30px;
+    margin: 0;
+}
+
+/* Fix Overlay Button Alignment */
+.overlay button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* --- Social Media Specific Hover Colors --- */
+
+/* Facebook Hover (#1877F2) */
+a:hover .icon-facebook {
+    filter: invert(40%) sepia(11%) saturate(1987%) hue-rotate(175deg) brightness(140%) contrast(169%) !important;
+    transform: scale(1.1);
+}
+
+/* Instagram Hover (#E4CE40) */
+a:hover .icon-instagram {
+    filter: invert(37%) sepia(47%) saturate(327%) hue-rotate(14deg) brightness(155%) contrast(189%) !important;
+    transform: scale(1.1);
+}
+
+/* YouTube Hover (#FF0000) */
+a:hover .icon-youtube {
+    filter: invert(19%) sepia(95%) saturate(7456%) hue-rotate(358deg) brightness(101%) contrast(123%) !important;
+    transform: scale(1.1);
+}
+/* turns the find something text from white to gold on hover */
+.search:hover {
+    color: #ffd700;
+}
