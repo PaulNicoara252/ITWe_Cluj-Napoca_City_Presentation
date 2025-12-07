@@ -127,7 +127,9 @@
         </nav>
 
         <div class="header-utils">
-            <a href="javascript:void(0)" onclick="openSearch()">🔍 Find something</a>
+            <a href="javascript:void(0)" onclick="openSearch()">
+                <img src="./img/icons/search.svg" class="svg-icon icon-white" alt="Search"><p class="search">Find something</p>
+            </a>
         </div>
     </div>
 </header>
@@ -234,40 +236,74 @@
 
 <footer>
     <div class="footer-container">
+
         <div class="footer-col">
             <h3>CLUJ-NAPOCA DISCOVER</h3>
             <p>A web design project for ITWE course.</p>
             <p>Faculty of Information Technology, VUT Brno.</p>
         </div>
+
         <div class="footer-col">
             <h3>Contact us / PROJECT TEAM</h3>
-            <div class="contact-item"><i class="fas fa-user"></i> Paul Nicoară<br><a href="mailto:nicoarap2004@gmail.com">nicoarap2004@gmail.com</a></div>
-            <div class="contact-item"><i class="fas fa-user"></i> Rareș Baciu<br><a href="mailto:baciur57@gmail.com">baciur57@gmail.com</a></div>
-            <div class="contact-item"><i class="fas fa-user"></i> Csaba Gyorfi<br><a href="mailto:baciur57@gmail.com">baciur57@gmail.com</a></div>
+            <div class="contact-item">
+                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Paul Nicoară<br>
+                <a href="mailto:nicoarap2004@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> nicoarap2004@gmail.com</a><br>
+                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 799 856 742</span>
+            </div>
+            <div class="contact-item">
+                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Rareș Baciu<br>
+                <a href="mailto:baciur57@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> baciur57@gmail.com</a><br>
+                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 770 708 076</span>
+            </div>
+            <div class="contact-item">
+                <img src="./img/icons/user.svg" class="svg-icon icon-gold" alt="User"> Csaba Györfi<br>
+                <a href="mailto:csaba.gyorfi.norbert@gmail.com"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> csaba.gyorfi.norbert@gmail.com</a><br>
+                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +40 774 460 825</span>
+            </div>
         </div>
+
         <div class="footer-col">
             <h3>SUPERVISORS</h3>
-            <div class="contact-item"><i class="fas fa-university"></i> Radek Burget<br><a href="mailto:burgetr@fit.vut.cz">burgetr@fit.vut.cz</a></div>
+            <div class="contact-item">
+                <img src="./img/icons/univ.svg" class="svg-icon icon-gold" alt="University"> Radek Burget<br>
+                <a href="mailto:burgetr@fit.vut.cz"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> burgetr@fit.vut.cz</a><br>
+                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +420 541 141 441</span>
+            </div>
+            <div class="contact-item">
+                <img src="./img/icons/univ.svg" class="svg-icon icon-gold" alt="University"> Jiří Hynek<br>
+                <a href="mailto:hynek@fit.vut.cz"><img src="./img/icons/mail.svg" class="svg-icon icon-gold" alt="Mail"> hynek@fit.vut.cz</a><br>
+                <span><img src="./img/icons/phone.svg" class="svg-icon icon-gold" alt="Phone"> +420 541 141 320</span>
+            </div>
+
             <div class="social-section" style="margin-top: 30px;">
                 <h3>FOLLOW VUT</h3>
                 <div class="social-icons">
-                    <a href="https://www.facebook.com/BrnoUniversityOfTechnology" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/fit.vut/?__d=1utm_sourceig_embed" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@FIT_VUT/videos" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/BrnoUniversityOfTechnology" target="_blank" title="Facebook">
+                        <img src="./img/icons/facebook.svg" class="svg-icon icon-white social-svg icon-facebook" alt="Facebook">
+                    </a>
+                    <a href="https://www.instagram.com/fit.vut/?__d=1utm_sourceig_embed" target="_blank" title="Instagram">
+                        <img src="./img/icons/instagram.svg" class="svg-icon icon-white social-svg icon-instagram" alt="Instagram">
+                    </a>
+                    <a href="https://www.youtube.com/@FIT_VUT/videos" target="_blank" title="YouTube">
+                        <img src="./img/icons/youtube.svg" class="svg-icon icon-white social-svg icon-youtube" alt="YouTube">
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+
     <div class="footer-bottom">
-        <p>© 2025 Cluj-Napoca Project. All rights reserved.</p>
+        <p>&copy; 2025 Cluj-Napoca Project. All rights reserved.</p>
     </div>
 </footer>
-
 <div id="myOverlay" class="overlay">
-    <span class="closebtn" onclick="closeSearch()">×</span>
+    <span class="closebtn" onclick="closeSearch()">&times;</span>
+
     <div class="overlay-content">
-        <input type="text" placeholder="Type here..." id="searchInput">
-        <button type="button" onclick="performSearch()"><i class="fas fa-search"></i></button>
+        <input type="text" placeholder="Type here (e.g., hotel, untold, food)..." id="searchInput">
+        <button type="button" onclick="performSearch()">
+            <img src="./img/icons/search.svg" class="svg-icon icon-gold icon-overlay" alt="Search">
+        </button>
     </div>
 </div>
 
