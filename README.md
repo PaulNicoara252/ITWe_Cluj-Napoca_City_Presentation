@@ -4,7 +4,7 @@
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![VUT](https://img.shields.io/badge/VUT-FIT-red?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
-## 🏰 Cluj-Napoca Discover
+##  Cluj-Napoca Discover
 
 A modern, responsive web presentation designed to showcase the tourism potential, history, and vibrant life of **Cluj-Napoca**, the heart of Transylvania.
 
@@ -13,7 +13,7 @@ This project was developed as a team assignment for the **ITWE** course, demonst
 ![Project Preview](./img/preview-upper.png)
 ![Project Preview](./img/preview-lower.png)
 
-## 🚀 Features
+##  Features
 
 * **Multi-Page Architecture:** A comprehensive site structure with over 20 linked HTML documents.
 * **Custom Mega Menu:** A complex, pure CSS dropdown navigation system organizing content into logical columns.
@@ -25,7 +25,7 @@ This project was developed as a team assignment for the **ITWE** course, demonst
     * **Horizontal Scroll:** Netflix-style scrolling for accommodation and sightseeing categories.
 * **Modern Aesthetics:** Dark-themed design ("Dark Mode"), video backgrounds, and clean typography using Google Fonts (Montserrat).
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * **HTML5** - Semantic structure (header, nav, main, article, footer).
 * **CSS3** - 100% Custom styling. No frameworks used.
@@ -35,7 +35,7 @@ This project was developed as a team assignment for the **ITWE** course, demonst
 * **JavaScript (Vanilla)** - DOM manipulation for search, modal galleries, and navigation logic.
 * **Google Maps Embeds** - Integration for location services.
 
-## 📂 Project Structure
+##  Project Structure
 
 ```bash
 /Cluj-Napoca-Discover
@@ -64,14 +64,14 @@ This project was developed as a team assignment for the **ITWE** course, demonst
 ```
 
 <details>
-<summary><h3>🗺️ Sitemap </h3></summary>
+<summary><h3> Sitemap </h3></summary>
 <br>
 
 ![Project sitemap](./img/sitemap.svg)
 
 </details>
 
-## 💡 Technical Highlights
+##  Technical Highlights
 
 This project adheres to strict **Vanilla Web Development** principles:
 
@@ -83,7 +83,7 @@ This project adheres to strict **Vanilla Web Development** principles:
 
 ---
 <div align="center">
-   <h3>👥 Authors (Team):</h3>
+   <h3> Authors (Team):</h3>
    <br>
    Paul Nicoară - Project Coordination & Development
    <br>
