@@ -9,7 +9,7 @@
 A modern, responsive web presentation designed to showcase the tourism potential, history, and vibrant life of **Cluj-Napoca**, the heart of Transylvania.
 
 This project was developed as a team assignment for the **ITWE** course, demonstrating proficiency in core web technologies **without the use of external CSS frameworks** (like Bootstrap or Tailwind).
-
+[Click here to view site](https://paulnicoara252.github.io/ITWe_Cluj-Napoca_City_Presentation/)
 ![Project Preview](./img/preview-upper.png)
 ![Project Preview](./img/preview-lower.png)
 
