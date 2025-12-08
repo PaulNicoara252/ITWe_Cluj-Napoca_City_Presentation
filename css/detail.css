@@ -1,14 +1,23 @@
-/* --- DETAIL PAGE STYLES (Template) --- */
-/* Acest fișier se ocupă doar de paginile individuale (Obiective, Hoteluri, Evenimente) */
+/* =========================================
+   DETAIL PAGE STYLES (Template)
+   Used: Individual pages (Sites, Hotels, Events)
+   ========================================= */
 
-/* Container Principal pentru Detalii */
+/* Main Detail Container */
 .detail-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 120px 40px 60px; /* 120px sus pentru a nu intra sub header-ul fix */
+    padding: 120px 40px 60px; /* 120px top to avoid hiding under fixed header */
 }
 
-/* Header-ul intern al paginii (Titlu + Breadcrumbs) */
+/* Responsive Container */
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 100px 20px 40px; 
+    }
+}
+
+/* Internal Page Header (Title + Breadcrumbs) */
 .detail-header {
     margin-bottom: 30px;
     border-bottom: 1px solid #333;
@@ -21,6 +30,7 @@
     margin-top: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    line-height: 1.2;
 }
 
 .breadcrumbs {
@@ -28,6 +38,7 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     font-weight: 600;
+    flex-wrap: wrap; 
 }
 
 .breadcrumbs a {
@@ -44,13 +55,13 @@
     color: #ffd700;
 }
 
-/* --- GALERIE FOTO TIP "PRAGA" --- */
+/* --- PRAGUE TYPE GALLERY --- */
 .prague-gallery {
     display: grid;
-    /* Layout asimetric: Stânga mare (1.5 fracții), Dreapta (1 fracție) */
+    /* Asymmetric layout: Left large (1.5 fr), Right (1 fr) */
     grid-template-columns: 1.5fr 1fr;
     gap: 8px;
-    height: 500px; /* Înălțime fixă pentru impact vizual */
+    height: 500px;
     margin-bottom: 60px;
 }
 
@@ -59,7 +70,7 @@
     background-size: cover;
     background-position: center;
     height: 100%;
-    position: relative; /* Pentru eventuale etichete */
+    position: relative; 
 }
 
 .gallery-grid {
@@ -83,7 +94,7 @@
     opacity: 0.9;
 }
 
-/* Overlay pentru ultima poză (+More Photos) */
+/* Overlay for last photo (+More Photos) */
 .overlay-container::before {
     content: "";
     position: absolute;
@@ -93,7 +104,7 @@
 }
 
 .overlay-container:hover::before {
-    background: rgba(0,0,0,0.3); /* Se luminează puțin la hover */
+    background: rgba(0,0,0,0.3); 
 }
 
 .overlay-text {
@@ -107,17 +118,17 @@
     gap: 8px;
     font-size: 1rem;
     text-transform: uppercase;
-    pointer-events: none; /* Click-ul trece prin text */
+    pointer-events: none;
 }
 
-/* --- LAYOUT CONȚINUT (2 Coloane: Text vs Sidebar) --- */
+/* --- CONTENT LAYOUT (2 Columns: Text vs Sidebar) --- */
 .content-wrapper {
     display: flex;
     gap: 60px;
     align-items: flex-start;
 }
 
-/* Coloana Stângă (Text Descriptiv) */
+/* Left Column (Descriptive Text) */
 .content-text {
     flex: 2;
 }
@@ -139,10 +150,10 @@
     line-height: 1.8;
     margin-bottom: 15px;
     font-size: 1rem;
-    text-align: justify; /* Text aliniat frumos la ambele capete */
+    text-align: justify; 
 }
 
-/* Tabelul de program (Schedule) */
+/* Schedule Table */
 .schedule-table {
     list-style: none;
     padding: 0;
@@ -164,11 +175,11 @@
     border-bottom: none;
 }
 
-/* --- SIDEBAR DREAPTA (Card Hartă & Contact) --- */
+/* --- RIGHT SIDEBAR (Map Card & Contact) --- */
 .sidebar-wrapper {
     flex: 1;
     position: sticky;
-    top: 120px; /* Stă fix când dai scroll, sub header */
+    top: 120px; 
     height: fit-content;
 }
 
@@ -176,7 +187,7 @@
     background-color: #111;
     border: 1px solid #333;
     border-radius: 2px;
-    overflow: hidden; /* Ca să nu iasă colțurile hărții */
+    overflow: hidden; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
@@ -184,7 +195,7 @@
     display: block;
     width: 100%;
     height: 250px;
-    filter: grayscale(80%) invert(90%); /* Harta Google Maps în Dark Mode (Hack vizual) IMPORTANT*/
+    filter: grayscale(80%) invert(90%); /* Dark Mode Google Maps (Visual Hack) */
 }
 
 .card-details {
@@ -244,7 +255,7 @@
 .contact-row .value a {
     color: #fff;
     text-decoration: none;
-    font-family: monospace; /* Font tehnic pentru date */
+    font-family: monospace; 
     font-size: 1rem;
 }
 
@@ -253,7 +264,7 @@
     text-decoration: underline;
 }
 
-/* --- RESPONSIVE MEDIA QUERIES PENTRU TEMPLATE --- */
+/* --- RESPONSIVE MEDIA QUERIES FOR TEMPLATE --- */
 @media (max-width: 900px) {
     .prague-gallery {
         grid-template-columns: 1fr;
@@ -264,35 +275,37 @@
 
     .content-wrapper {
         flex-direction: column;
+        gap: 40px;
     }
+    .content-text { width: 100%; }
     .sidebar-wrapper {
         position: static;
         width: 100%;
     }
+    .detail-header h1 { font-size: 1.8rem; }
 }
 
-/* --- LIGHTBOX (MODAL GALERIE) --- */
+/* --- LIGHTBOX (GALLERY MODAL) --- */
 .gallery-modal {
-    display: none; /* Ascuns implicit */
+    display: none;
     position: fixed;
-    z-index: 99999; /* Peste tot */
+    z-index: 99999;
     padding-top: 50px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.95); /* Negru aproape opac */
+    background-color: rgba(0, 0, 0, 0.95);
 }
 
-/* Imaginea din interior */
 .modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 1000px;
     max-height: 80vh;
-    object-fit: contain; /* Să nu se deformeze */
+    object-fit: contain;
     animation: zoom 0.6s;
 }
 
@@ -301,7 +314,6 @@
     to {transform:scale(1)}
 }
 
-/* Butonul X */
 .close-modal {
     position: absolute;
     top: 15px;
@@ -317,7 +329,6 @@
     color: #ffd700;
 }
 
-/* Săgețile (Stânga/Dreapta) */
 .prev-btn, .next-btn {
     cursor: pointer;
     position: absolute;
@@ -339,11 +350,10 @@
 }
 
 .prev-btn:hover, .next-btn:hover {
-    background-color: rgba(255, 215, 0, 0.8); /* Galben transparent */
+    background-color: rgba(255, 215, 0, 0.8);
     color: black;
 }
 
-/* Textul cu numărul pozei */
 #caption {
     margin: auto;
     display: block;
@@ -355,15 +365,11 @@
     height: 150px;
 }
 
-/* Responsive */
 @media only screen and (max-width: 700px) {
-    .modal-content {
-        width: 100%;
-    }
+    .modal-content { width: 100%; }
 }
 
-/* --- EXPERIENCE GALLERY (Template Evenimente) --- */
-/* Grid pe 3 coloane: 1.5fr (mare) - 1fr (mijloc) - 1fr (dreapta) */
+/* --- EXPERIENCE GALLERY --- */
 .experience-gallery {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
@@ -382,7 +388,7 @@
 
 .exp-gallery-col {
     display: grid;
-    grid-template-rows: 1fr 1fr; /* 2 rânduri egale */
+    grid-template-rows: 1fr 1fr; 
     gap: 10px;
     height: 100%;
 }
@@ -401,22 +407,19 @@
     opacity: 0.9;
 }
 
-/* Responsive pentru Experience Gallery */
 @media (max-width: 900px) {
     .experience-gallery {
-        grid-template-columns: 1fr; /* Totul pe o coloana */
-        grid-template-rows: 300px auto auto; /* Mare sus, restul jos */
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px auto auto;
         height: auto;
     }
-
     .exp-gallery-col {
-        grid-template-columns: 1fr 1fr; /* Pe mobil, coloanele mici devin rânduri cu 2 poze */
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: 150px;
     }
 }
 
 /* --- CONTACT PAGE (TEAM LIST) --- */
-
 .team-list {
     display: flex;
     flex-direction: column;
@@ -430,7 +433,7 @@
     background-color: #111;
     border: 1px solid #333;
     padding: 30px;
-    gap: 40px; /* Spațiu între coloane */
+    gap: 40px;
     border-radius: 4px;
     transition: border-color 0.3s;
 }
@@ -439,21 +442,19 @@
     border-color: #ffd700;
 }
 
-/* 1. POZA (Stânga) */
 .team-photo {
     width: 150px;
     height: 150px;
     background-color: #222;
     background-size: cover;
     background-position: center;
-    border-radius: 4px; /* Sau 50% pentru cerc */
+    border-radius: 4px;
     border: 2px solid #444;
-    flex-shrink: 0; /* Să nu se micșoreze */
+    flex-shrink: 0;
 }
 
-/* 2. DESCRIERE (Mijloc) */
 .team-info {
-    flex: 2; /* Ocupă cel mai mult spațiu */
+    flex: 2;
 }
 
 .team-info h2 {
@@ -477,7 +478,6 @@
     line-height: 1.6;
 }
 
-/* 3. CONTACT (Dreapta) */
 .team-contact {
     flex: 1;
     border-left: 1px solid #333;
@@ -510,51 +510,47 @@
     text-decoration: underline;
 }
 
-/* RESPONSIVE (Mobil) */
 @media (max-width: 900px) {
     .team-card {
         flex-direction: column;
         text-align: center;
         gap: 20px;
+        padding: 20px;
     }
-
+    .team-info h2 { font-size: 1.4rem; }
     .team-contact {
         border-left: none;
         border-top: 1px solid #333;
         padding-left: 0;
         padding-top: 20px;
         width: 100%;
+        align-items: center;
     }
 }
 
-/* --- STILURI PENTRU faq.html --- */
-
-/* Stiluri generale preluate de pe pagina FAQ */
-.content-wrapper.faq {
-    display: block;
-}
+/* --- STYLES FOR faq.html --- */
+.content-wrapper.faq { display: block; }
 
 .content-text.faq {
     width: 100%;
     max-width: 900px;
-    margin: 0; /* Aliniat la stânga */
+    margin: 0;
     padding-left: 20px;
 }
 
-.text-section.faq {
-    margin-bottom: 30px;
+@media (max-width: 768px) {
+    .content-text.faq { padding-left: 0; }
 }
 
-/* Stiluri FAQ Item */
+.text-section.faq { margin-bottom: 30px; }
+
 .faq-item {
     margin-bottom: 30px;
     border-bottom: 1px solid #222;
     padding-bottom: 20px;
 }
 
-.faq-item:last-child {
-    border-bottom: none;
-}
+.faq-item:last-child { border-bottom: none; }
 
 .faq-question {
     color: #ffd700;
@@ -572,6 +568,7 @@
     border-radius: 4px;
     font-size: 0.9rem;
     color: #fff;
+    flex-shrink: 0;
 }
 
 .faq-answer {
@@ -580,13 +577,8 @@
     padding-left: 0;
 }
 
-
-/* --- STILURI PENTRU public-transport.html --- */
-
-/* Notă: Aceste stiluri sunt deja generice, dar le plasăm aici */
-.content-wrapper.public-transport {
-    margin-top: 40px;
-}
+/* --- STYLES FOR public-transport.html --- */
+.content-wrapper.public-transport { margin-top: 40px; }
 
 .text-section h3 {
     border-bottom: 1px solid #333;
@@ -602,11 +594,8 @@
     line-height: 1.8;
 }
 
-.text-section li {
-    margin-bottom: 10px;
-}
+.text-section li { margin-bottom: 10px; }
 
-/* Stiluri pentru lista de prețuri din Public Transport */
 .public-transport-prices {
     margin-top: 15px;
     background: #222;
@@ -616,22 +605,20 @@
 
 .public-transport-prices ul {
     list-style: none;
-    padding:0;
+    padding: 0;
     color: #ccc;
     font-size: 1rem;
 }
 
 .public-transport-prices ul li {
-    display:flex;
-    justify-content:space-between;
-    border-bottom:1px solid #333;
-    padding:10px 0;
-    margin-bottom: 0; /* Anulăm stilul de mai sus */
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+    margin-bottom: 0;
 }
 
-.public-transport-prices ul li:last-child {
-    border-bottom: none; /* Eliminăm bordura de la ultimul item */
-}
+.public-transport-prices ul li:last-child { border-bottom: none; }
 
 .public-transport-prices ul li span:nth-child(2) {
     color: #ffd700;
@@ -639,22 +626,14 @@
 }
 
 .public-transport-prices ul li span:last-child {
-    color: #e74c3c; /* Pentru "High Penalty" */
+    color: #e74c3c;
     font-weight: bold;
 }
 
-/* Stiluri pentru harta din Public Transport */
-.card-map-public-transport {
-    height: 400px;
-}
+.card-map-public-transport { height: 400px; }
 
-
-/* --- STILURI PENTRU facts-figures.html --- */
-
-.content-text.facts {
-    width: 100%;
-    max-width: 900px;
-}
+/* --- STYLES FOR facts-figures.html --- */
+.content-text.facts { width: 100%; max-width: 900px; }
 
 .fact-list li {
     margin-bottom: 10px;
@@ -662,12 +641,8 @@
     border-left: 2px solid #ffd700;
 }
 
-/* Stiluri pentru lista de tip tabel */
-.schedule-table li {
-    border-left: none; /* Anulăm stilul de mai sus */
-}
+.schedule-table li { border-left: none; }
 
-/* Stiluri pentru secțiunea 'Fun Facts' */
 .fun-facts-box {
     background: #222;
     padding: 20px;
@@ -675,9 +650,7 @@
     border-left: 4px solid #ffd700;
 }
 
-
-/* --- STILURI PENTRU feedback.html --- */
-
+/* --- STYLES FOR feedback.html --- */
 .feedback-wrapper {
     min-height: 60vh;
     display: flex;
@@ -696,7 +669,6 @@
     line-height: 1.8;
 }
 
-/* Buton mare și vizibil */
 .google-form-btn {
     display: inline-block;
     background-color: #ffd700;
@@ -718,8 +690,7 @@
     color: #ffd700;
 }
 
-/* --- STILURI PENTRU CARDURI ACCOMMODATION --- */
-
+/* --- ACCOMMODATION CARDS BACKGROUNDS --- */
 /* HOTELS */
 .card-beyfin { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/hotel_beyfin/main.jpg'); }
 .card-napoca { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/grand_hotel_napoca/main.jpg'); }
@@ -731,18 +702,3 @@
 
 /* HOSTELS */
 .card-zen { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/zen_hostel/main.jpg'); }
-
-/* --- STILURI PENTRU CARDURI ACCOMMODATION --- */
-
-/* HOTELS */
-.card-beyfin { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/hotel_beyfin/main.jpg'); }
-.card-napoca { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/grand_hotel_napoca/main.jpg'); }
-.card-premier { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/hotel_premier/main.jpg'); }
-
-/* APARTMENTS */
-.card-vivaldi { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/vivaldi_studios/main.jpg'); }
-.card-west { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/west-city-tower/main.jpg'); }
-
-/* HOSTELS */
-.card-zen { background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/accommodation/zen_hostel/main.jpg'); }
-
