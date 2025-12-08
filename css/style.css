@@ -1067,3 +1067,25 @@ a:hover .icon-youtube {
 .search:hover {
     color: #ffd700;
 }
+/* 6. GRAY FILTER (For Breadcrumbs) */
+.icon-gray {
+    /* Filter to turn black SVG to Gray (#888888) */
+    filter: invert(59%) sepia(0%) saturate(0%) hue-rotate(135deg) brightness(92%) contrast(91%);
+}
+
+/* Breadcrumb hover: Gray icon turns White */
+.breadcrumbs a:hover .icon-gray {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.icon-black {
+    /* Forces the icon to be solid Black */
+    filter: brightness(0); 
+    /* Ensures it stays black even on hover */
+    transition: transform 0.3s;
+}
+
+/* Optional: If you want the arrow to zoom slightly on hover like the others */
+a:hover .icon-black {
+    transform: scale(1.1);
+}
